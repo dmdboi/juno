@@ -1,0 +1,25 @@
+[
+    {
+        "id": "1",
+        "name": "blog",
+        "ref": "blog",
+        "content": [
+            {
+                "type": "component",
+                "ref": "menu"
+            },
+            {
+                "type": "main",
+                "attributes": {
+                    "class": "blog-body"
+                },
+                "placeholder": "blog-content",
+                "content": []
+            },
+            {
+                "type": "component",
+                "ref": "footer"
+            }
+        ]
+    }
+]

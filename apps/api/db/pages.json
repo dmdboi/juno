@@ -1,0 +1,28 @@
+[
+    {
+        "id": "1",
+        "name": "home",
+        "ref": "home",
+        "template": "blog",
+        "slot": "blog-content",
+        "content": [
+            {
+                "type": "div",
+                "content": [
+                    {
+                        "type": "h1",
+                        "content": [
+                            "Welcome to the blog"
+                        ]
+                    },
+                    {
+                        "type": "p",
+                        "content": [
+                            "This is the home page of the blog."
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

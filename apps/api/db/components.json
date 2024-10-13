@@ -1,0 +1,99 @@
+[
+    {
+        "id": "1",
+        "type": "component",
+        "name": "menu",
+        "ref": "menu",
+        "content": [
+            {
+                "type": "nav",
+                "attributes": {
+                    "class": "blog-menu"
+                },
+                "content": [
+                    {
+                        "type": "ul",
+                        "content": [
+                            {
+                                "type": "li",
+                                "repeatable": "menu",
+                                "content": [
+                                    {
+                                        "type": "a",
+                                        "content": [
+                                            ""
+                                        ],
+                                        "attributes": {
+                                            "href": "/fruits/:value"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "data": {
+            "menu": [
+                {
+                    "key": "Apples",
+                    "value": "apples"
+                },
+                {
+                    "key": "Bananas",
+                    "value": "bananas"
+                },
+                {
+                    "key": "Oranges",
+                    "value": "oranges"
+                },
+                {
+                    "key": "Pears",
+                    "value": "pears"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2",
+        "type": "component",
+        "name": "header",
+        "ref": "header",
+        "content": [
+            {
+                "type": "header",
+                "content": [
+                    {
+                        "type": "h1",
+                        "content": [
+                            "<%= title %>"
+                        ]
+                    }
+                ],
+                "attributes": {
+                    "class": "blog-header"
+                }
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "type": "component",
+        "name": "footer",
+        "ref": "footer",
+        "content": [
+            {
+                "type": "footer",
+                "content": [
+                    {
+                        "type": "p",
+                        "content": [
+                            "This is the footer."
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
