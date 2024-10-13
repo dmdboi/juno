@@ -1,0 +1,34 @@
+{
+  "name": "juno",
+  "version": "0.1.0",
+  "description": "A site builder project built on Express & Vue 3",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmdboi/juno.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmdboi/juno/issues"
+  },
+  "homepage": "https://github.com/dmdboi/juno#readme",
+  "devDependencies": {
+    "turbo": "^2.1.3"
+  },
+  "packageManager": "npm@10.5.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
