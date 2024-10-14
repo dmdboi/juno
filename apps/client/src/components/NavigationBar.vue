@@ -4,7 +4,7 @@ import { HomeIcon } from "lucide-vue-next";
 
 <template>
   <!-- Top Navigation -->
-  <div class="border-b bg-accent text-secondary-foreground">
+  <div class="border-b border-b-2 bg-secondary/90 text-secondary-foreground">
     <div class="px-6 mx-auto md:px-0">
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center">
