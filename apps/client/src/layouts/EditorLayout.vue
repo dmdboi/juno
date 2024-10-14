@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import EditorSideBar from "../components/EditorSidebar.vue";
+
+import NavigationBar from "@/components/NavigationBar.vue";
 </script>
 
 <template>
@@ -8,6 +10,9 @@ import EditorSideBar from "../components/EditorSidebar.vue";
   </div>
   <div>
     <div class="border-t">
+      <!-- Navigation -->
+      <NavigationBar />
+
       <div class="bg-background">
         <div class="grid lg:grid-cols-6">
           <EditorSideBar />
