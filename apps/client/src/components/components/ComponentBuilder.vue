@@ -35,23 +35,9 @@ const updateElement = (index: number, updatedElement: any) => {
         </div>
       </div>
 
-      <VueDraggable
-        v-model="localValue"
-        :group="{
-          name: 'elements',
-          pull: 'clone',
-          put: e => {
-            console.log('Put', e);
-            return true;
-          },
-        }"
-        item-key="label"
-        class="min-h-full p-4 text-black bg-white border-b rounded-b-lg border-x">
-        <template v-for="(element, index) in localValue" :key="index">
-          <!-- Pass the element as prop and handle updates via @update -->
-          <NestedRenderer :element="element" @update:element="updateElement(index, $event)" :isComponent="element.is_component" />
-        </template>
-      </VueDraggable>
+      <div class="min-h-full p-4 text-black bg-white border-b rounded-b-lg border-x">
+        <NestedRenderer :element="localValue[0]" @update:element="updateElement(localValue[0], $event)" />
+      </div>
     </div>
   </div>
 </template>

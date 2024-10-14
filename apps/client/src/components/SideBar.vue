@@ -4,7 +4,7 @@ import { ref } from "vue";
 import { cn } from "@/utils";
 import { Button } from "./ui/button";
 import { useRouter } from "vue-router";
-import { CogIcon } from "lucide-vue-next";
+import { SettingsIcon } from "lucide-vue-next";
 
 const router = useRouter();
 
@@ -35,7 +35,7 @@ const goTo = (route: string) => {
           <div>
             <Button variant="outline" as-child>
               <router-link to="/settings">
-                <CogIcon class="w-6 h-6" />
+                <SettingsIcon class="w-4 h-4" />
               </router-link>
             </Button>
           </div>

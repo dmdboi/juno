@@ -7,7 +7,7 @@ import type { ElementType } from "@/types";
 import { useElementStore } from "@/stores/elements";
 
 interface Props {
-  element: ElementType;
+  element: any;
 }
 
 const elementStore = useElementStore();
@@ -25,7 +25,7 @@ const elementContent = computed({
 
 // Check if the element is a container type
 const isContainerElement = computed(() => {
-  const containerTags = ["div", "section", "ul", "ol", "nav", "header", "footer", "li", "main", "body"];
+  const containerTags = ["div", "section", "ul", "ol", "nav", "header", "footer", "li", "main", "body", "table", "tr", "td", "th", "thead", "tbody", "tfoot"];
   return containerTags.includes(props.element.type) && Array.isArray(props.element.content);
 });
 
@@ -39,23 +39,19 @@ const updateChild = (index: number, updatedElement: ElementType) => {
 
 <template>
   <!-- Draggable wrapper for container elements like div/section -->
-  <VueDraggable
-    v-if="isContainerElement"
-    :class="[element.attributes?.class]"
-    :tag="element.type"
-    v-model="element.content"
-    group="elements"
-    @click.self="selectElement(element)">
+  <VueDraggable v-if="isContainerElement" :class="[element.attributes?.class]" :tag="element.type" v-model="element.content" group="elements" @click.self="selectElement(element)">
     <!-- Render each child element -->
     <template v-for="(childElement, index) in element.content" :key="index">
       <!-- If string, just render string -->
-      <p v-if="typeof childElement === 'string'">{{ childElement }}</p>
+
+      <p v-if="typeof childElement === 'string'"
+        @click.self="selectElement(element)"
+        class="component"
+        :class="selectedElement === element ? 'border-2 border-blue-500' : ''"
+      >{{ childElement }}</p>
 
       <!-- Nested renderer with the same component behavior passed down -->
-      <nested-renderer
-        v-else-if="childElement.content && childElement.content.length > 0"
-        :element="childElement"
-        @update:element="updateChild(index, $event)" />
+      <nested-renderer v-else-if="childElement.content && childElement.content.length > 0" :element="childElement" @update:element="updateChild(index, $event)" />
 
       <!-- Leaf elements (conditionally interactive) -->
       <component
@@ -75,7 +71,7 @@ const updateChild = (index: number, updatedElement: ElementType) => {
     </template>
   </VueDraggable>
 
-  <!-- Leaf elements (conditionally interactive) -->
+  <!-- Leaf elements -->
   <component
     @click.self="selectElement(element)"
     v-if="!isContainerElement"

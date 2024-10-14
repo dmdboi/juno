@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 
 import DataTable from "@/components/shad/DataTable.vue";
+import { Button } from "@/components/ui/button";
 
 import api from "@/api/api";
 
@@ -17,7 +18,12 @@ onMounted(async () => {
 
 <template>
   <div>
-    <h1 class="text-2xl">Components</h1>
+    <div class="flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Components</h1>
+      <Button as-child type="default">
+        <router-link to="/components/create" class="btn btn-primary">Create Component</router-link>
+      </Button>
+    </div>
 
     <div class="mt-12">
       <DataTable :columns="componentTableColumns" :data="components" />

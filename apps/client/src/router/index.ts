@@ -15,6 +15,7 @@ import ListPages from "../views/pages/ListPages.vue";
 import EditPage from "../views/pages/EditPage.vue";
 import ViewSite from "@/views/sites/ViewSite.vue";
 import CreatePage from "@/views/pages/CreatePage.vue";
+import CreateComponent from "@/views/components/CreateComponent.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +57,11 @@ const router = createRouter({
       name: "editComponentLayout",
       component: EditorLayout,
       children: [
+        {
+          name: "new-component",
+          path: "/components/create",
+          component: CreateComponent,
+        },
         {
           name: "edit-component",
           path: "/components/:id/edit",

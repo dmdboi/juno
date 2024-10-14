@@ -10,7 +10,7 @@ export const useComponentStore = defineStore("components", () => {
   const clonedComponent = ref({} as ElementType);
 
   /** Sets the current Component in the store and creates a clone */
-  async function setComponent(componentData: ElementType) {
+  async function setComponent(componentData: any) {
     component.value = componentData;
 
     clone();

@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import Tabs from "@/components/shad/Tabs.vue";
 
 import api from "@/api/api";
-import router from "@/router";
 import { useToastStore } from "@/stores/toast";
 import { usePageStore } from "@/stores/pages";
 

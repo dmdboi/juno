@@ -39,7 +39,7 @@ export const useElementStore = defineStore("elements", () => {
     selectedElement.value = element;
 
     // Add "attributes" object to the selected element
-    if(!selectedElement.value.attributes) {
+    if (!selectedElement.value.attributes) {
       selectedElement.value.attributes = {};
     }
 

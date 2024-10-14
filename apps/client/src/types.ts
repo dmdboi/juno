@@ -1,9 +1,11 @@
+import type { Content } from "./types/content";
+
 export interface ElementType {
   id: string;
   type: string;
   name: string;
   ref: string;
-  content: Array<string | ElementType>;
+  content: Content[];
   attributes?: {
     id?: string;
     class?: string;

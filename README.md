@@ -1,105 +1,61 @@
-# vue-builder-api
+# juno
 
-!! This is a work in progress !!
+> [!WARNING]  
+> This project is still in development and is not yet ready for production use.
 
-This is the API for vue-page-builder. It's a basic API to manage pages and components.
+An open-source page builder for building static websites.
+
+Under the hood, Juno transforms HTML to JSON and vice versa. This enables you to build your website using a drag-and-drop editor or by writing HTML directly.
+
+## Features
+
+- Pages
+- Templates
+- Components
+- Drag-and-drop editor
+- TailwindCSS support
+- Site-wide settings (meta tags, site name, etc.)
+
+## Tech Stack
+
+- [Vue 3](https://v3.vuejs.org/)
+- [Express 5](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 
 ## Installation
 
+You will need to have MongoDB installed on your machine or you can use a cloud service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+
 ```bash
-git clone https://github.com/dmdboi/vue-builder-api.git
-cd vue-builder-api
+git clone https://github.com/dmdboi/juno.git
+cd juno
 npm install
+npm run dev
 ```
 
 You will need to create a `.env` file in the root directory with the following variables:
 
 ```bash
 MONGO_DB_URI=your_mongo_db_uri
+PORT=your_port
 ```
 
 ## Usage
+
+This starts both the backend and frontend servers. The backend server runs on your .env port and the frontend runs on port 5173.
 
 ```bash
 npm run dev
 ```
 
-## Example Usage
+## Contributing
 
-Using the API, JSON data can be used to create dynamic pages and components. Below is an example of a JSON object that can be used to create a menu component.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-### Input
-```json
-{
-  "type": "component",
-  "name": "menu",
-  "content": [
-    {
-      "type": "div",
-      "attributes": {
-        "class": "blog-menu"
-      },
-      "content": [
-        {
-          "type": "ul",
-          "content": [
-            {
-              "type": "li",
-              "repeatable": "menu",
-              "content": [
-                {
-                  "type": "a",
-                  "content": [""],
-                  "attributes": {
-                    "href": "http://mysite.test/fruits/:value"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "data": {
-    "menu": [
-      {
-        "key": "Apples",
-        "value": "apples"
-      },
-      {
-        "key": "Bananas",
-        "value": "bananas"
-      },
-      {
-        "key": "Oranges",
-        "value": "oranges"
-      },
-      {
-        "key": "Pears",
-        "value": "pears"
-      }
-    ]
-  }
-}
-```
+## Screenshots
 
-### Output
-```html
-<div class="blog-menu">
-  <ul>
-    <li>
-      <a href="http://mysite.test/fruits/apple">Apple</a>
-    </li>
-    <li>
-      <a href="http://mysite.test/fruits/banana">Banana</a>
-    </li>
-    <li>
-      <a href="http://mysite.test/fruits/orange">Orange</a>
-    </li>
-    <li>
-      <a href="http://mysite.test/fruits/pear">Pear</a>
-    </li>
-  </ul>
-</div>
-```
+Site Settings ![Site Settings](./docs/screenshots/site-settings.png)
+
+Page Editor ![Page Editor](./docs/screenshots/page-editor.png)
+
+Component Editor ![Component Editor](./docs/screenshots/component-editor.png)

@@ -9,9 +9,9 @@ import EditorSideBar from "../components/EditorSidebar.vue";
   <div>
     <div class="border-t">
       <div class="bg-background">
-        <div class="grid lg:grid-cols-5">
+        <div class="grid lg:grid-cols-6">
           <EditorSideBar />
-          <div class="col-span-3 lg:col-span-4 lg:border-l">
+          <div class="col-span-3 lg:col-span-5 lg:border-l">
             <div class="h-full px-4 py-6 lg:px-8">
               <RouterView />
             </div>
