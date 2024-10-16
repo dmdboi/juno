@@ -11,6 +11,7 @@
         },
         "dev": {
             "cache": false,
+            "outputLogs": "full",
             "dependsOn": [
                 "^dev"
             ],

@@ -5,23 +5,26 @@
  * @param meta
  * @returns
  */
-const htmlTemplate = (title: string, body: string, meta: { [key: string]: string }) => `<!DOCTYPE html>
+const htmlTemplate = (body: string, meta: { [key: string]: string }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title}</title>
+  <title>${meta.name ?? meta.title}</title>
 
-  <meta name="title" content="${title}">
-  <meta name="description" content="${meta.description}">
+  <!-- Tailwind CSS (Development) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Meta -->
+  <meta name="title" content="${meta.name ?? meta.title}">
+
+  ${meta && meta.description ? `<meta name="description" content="${meta.description}">` : ""}
 
   <!-- Open Graph / Twitter -->
-  ${Object.keys(meta)
-    .map(key => `<meta name="${key}" content="${meta[key]}">`)
-    .join("\n")}
-  
+    ${Object.keys(meta)
+      .map(key => `<meta name="${key}" content="${meta[key]}">`)
+      .join("\n")}
 </head>
-
 ${body}
 </html>
 `;

@@ -22,7 +22,16 @@ export const elements = [
     icon: SquareDashedIcon,
     type: "section",
     label: "Section",
-    content: ["New Section"],
+    content: [
+      {
+        type: "h1",
+        content: ["Section Heading"],
+      },
+      {
+        type: "p",
+        content: ["Section Content"],
+      },
+    ],
   },
   {
     icon: CompassIcon,

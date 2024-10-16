@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ulid } from "ulid";
 
-import Site from "../../models/site";
+import Site from "../../models/Site";
 
 async function store(req: Request, res: Response) {
   const payload = req.body;
