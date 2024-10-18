@@ -51,11 +51,3 @@ npm run dev
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## Screenshots
-
-Site Settings ![Site Settings](./docs/screenshots/site-settings.png)
-
-Page Editor ![Page Editor](./docs/screenshots/page-editor.png)
-
-Component Editor ![Component Editor](./docs/screenshots/component-editor.png)

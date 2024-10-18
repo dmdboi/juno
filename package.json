@@ -4,8 +4,9 @@
   "description": "A site builder project built on Express & Vue 3",
   "main": "index.js",
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:client": "cd apps/client && npm run dev",
+    "dev:server": "cd apps/api && npm run dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint",
     "test": "turbo test",
