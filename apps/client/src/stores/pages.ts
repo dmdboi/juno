@@ -5,6 +5,7 @@ import { JSONToHTML, HTMLToJSON } from "html-to-json-parser";
 
 import type { Page } from "@/types/pages";
 import type { Content } from "@/types/content";
+import { useElementStore } from "./elements";
 
 export const usePageStore = defineStore("pages", () => {
   const page = ref({} as Page);
@@ -13,6 +14,9 @@ export const usePageStore = defineStore("pages", () => {
   /** Sets the current Component in the store and creates a clone */
   async function setPage(pageData: Page) {
     page.value = pageData;
+
+    useElementStore().currentTab = "page-details";
+
     clone();
   }
 
@@ -36,7 +40,7 @@ export const usePageStore = defineStore("pages", () => {
 
   /** Converts and returns the first object in Component's content array to HTML */
   async function getContentInHTML() {
-    return (await JSONToHTML(page.value.content));
+    return await JSONToHTML(page.value.content);
   }
 
   /** Returns the first object in Component's content array */

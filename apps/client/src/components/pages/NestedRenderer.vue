@@ -30,7 +30,7 @@ const elementContent = computed({
 
 // Check if the element is a container type
 const isContainerElement = computed(() => {
-  const containerTags = ["div", "section", "ul", "ol", "nav", "header", "footer", "li", "main", "body"];
+  const containerTags = ["div", "section", "ul", "ol", "nav", "header", "footer", "li", "main", "body", "table", "tr", "td", "th", "thead", "tbody", "tfoot"];
   return containerTags.includes(props.element.type) && Array.isArray(props.element.content);
 });
 

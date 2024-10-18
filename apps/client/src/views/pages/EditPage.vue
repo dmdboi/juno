@@ -75,8 +75,6 @@ onMounted(async () => {
     return router.push("/pages");
   }
 
-  console.log(response);
-
   await pageStore.setPage(response);
   html.value = await pageStore.getContentInHTML();
 

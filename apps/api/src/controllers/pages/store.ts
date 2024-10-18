@@ -31,7 +31,7 @@ async function store(req: Request, res: Response) {
 async function update(req: Request, res: Response) {
   const { id } = req.params;
 
-  const { name, content } = req.body;
+  const { name, content, meta } = req.body;
 
   // Find the page by ID
   const page = await Page.findOne({ id: id });
@@ -56,6 +56,7 @@ async function update(req: Request, res: Response) {
         name,
         ref: newref,
         content: cleanedContent,
+        meta,
       },
     }
   );

@@ -22,7 +22,7 @@ const forwardedProps = useForwardProps(delegatedProps)
       props.class,
     )"
   >
-    <span class="truncate">
+    <span class="capitalize truncate">
       <slot />
     </span>
   </TabsTrigger>

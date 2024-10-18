@@ -1,4 +1,4 @@
-import { ContentBody, RepeatableData } from "../types/Content";
+import { ContentBody } from "shared-types";
 
 /**
  * Recursively find all repeatable content objects in a content array and return them in an array for further processing.

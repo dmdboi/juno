@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import { VueDraggable } from "vue-draggable-plus";
+import { useRoute } from "vue-router";
 
-import AttributesTab from "./AttributesTab.vue";
+import PageDetailsTab from "./sidebar/PageDetailsTab.vue";
+import AttributesTab from "./sidebar/AttributesTab.vue";
+import ElementsTab from "./sidebar/ElementsTab.vue";
+import Tabs from "./shad/Tabs.vue";
+
 import { cn } from "@/utils";
 import { useElementStore } from "@/stores/elements";
-import { elements } from "@/utils/element";
-import { Card } from "./ui/card";
 
+const route = useRoute();
 const { currentTab } = storeToRefs(useElementStore());
 
-const availableItems = ref(elements);
+const tabs = ["elements"];
+
+// Determine if on /pages/new or /pages/:id/edit
+if (route.name && ["new-pages", "edit-pages"].includes(route.name!.toString())) {
+  tabs.splice(0, 0, "page-details");
+}
 </script>
 
 <template>
   <div :class="cn('pb-12 h-screen bg-secondary/90', $attrs.class ?? '')">
-    <div class="space-y-4">
+    <div class="flex justify-center">
+      <Tabs v-model="currentTab" :tabs="tabs" />
+    </div>
+
+    <div class="px-3 py-2 space-y-4">
       <!-- Elements Tab -->
-      <div class="px-3" v-if="currentTab === 'elements'">
-        <h2 class="my-4 text-lg font-semibold tracking-tight">Elements</h2>
-        <VueDraggable v-model="availableItems" :group="{ name: 'elements', pull: 'clone', put: false }" item-key="label" class="grid grid-cols-1 gap-2 md:grid-cols-2">
-          <Card v-for="(item, index) in availableItems" :key="index">
-            <div class="flex items-center justify-center w-full h-24 hover:cursor-pointer">
-              <div>
-                <component :is="item.icon" class="mx-auto text-2xl" />
-                <span class="block mt-1">{{ item.label }}</span>
-              </div>
-            </div>
-          </Card>
-        </VueDraggable>
-      </div>
+      <ElementsTab v-if="currentTab === 'elements'" />
 
       <!-- Attributes Tab -->
-      <div class="px-3 py-2" v-if="currentTab === 'attributes'">
-        <AttributesTab />
-      </div>
+      <AttributesTab v-if="currentTab === 'attributes'" />
+
+      <!-- Page Details Tab -->
+      <PageDetailsTab v-if="currentTab === 'page-details'" />
     </div>
   </div>
 </template>

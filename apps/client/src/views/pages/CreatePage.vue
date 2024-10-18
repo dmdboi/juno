@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
 import { storeToRefs } from "pinia";
 
 import PageBuilder from "@/components/pages/PageBuilder.vue";
@@ -12,7 +11,6 @@ import api from "@/api/api";
 import { useToastStore } from "@/stores/toast";
 import { usePageStore } from "@/stores/pages";
 
-const route = useRoute();
 const pageStore = usePageStore();
 const { page } = storeToRefs(pageStore);
 const toastStore = useToastStore();
